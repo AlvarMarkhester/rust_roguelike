@@ -1,5 +1,5 @@
 use rltk::{GameState, Rltk, RGB, VirtualKeyCode};
-use specs::{prelude::*, rayon::iter::Positions};
+use specs::prelude::*;
 use std::cmp::{max, min};
 use specs_derive::Component;
 
@@ -150,6 +150,7 @@ fn draw_map(map: &[TileType], ctx : &mut Rltk) {
 fn main() -> rltk::BError {
     use rltk::RltkBuilder;
     let context = RltkBuilder::simple80x50()
+        .with_dimensions(120, 100)
         .with_title("Roguelike Tutorial")
         .build()?;
     let mut gs = State {
